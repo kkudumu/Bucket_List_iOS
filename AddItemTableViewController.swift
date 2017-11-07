@@ -10,16 +10,19 @@ import UIKit
 
 class AddItemTableViewController: UITableViewController {
     
+    //we create our delegate, item var and indexpath var
     weak var delegate: AddItemTableViewControllerDelegate?
     var item: String?
     var indexPath: NSIndexPath?
     
     @IBOutlet weak var itemTextField: UITextField!
     
+    //adding the cancel button to a delegate
     @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
         delegate?.cancelButtonPressed(by: self)
     }
     
+    //assigning save button to a delegate
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
         let text = itemTextField.text!
         delegate?.itemSaved(by: self, with: text, at: indexPath)
